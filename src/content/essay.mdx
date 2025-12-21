@@ -1,5 +1,5 @@
 import { Quote, Callout, DeepVsShallowDiagram, CodeExample, ChaosTumbleweed } from '../components/essay'
-import { TimestampLink } from '../components/video'
+import { TimestampLink, TimestampBlock } from '../components/video'
 
 # A Philosophy of Software Design
 
@@ -26,7 +26,7 @@ But sometimes our design isn’t the best. We are taught by popular demand and U
 
 However, John Ousterhout argues something different. He suggests that we should create "deep" classes with simple interfaces that hide significant complexity.
 
-## <TimestampLink t={756}>Deep vs Shallow Classes</TimestampLink>
+## <TimestampLink t={756}>Deep vs Shallow Modules</TimestampLink>
 
 
 
@@ -35,30 +35,31 @@ A deep class is one where the interface is much simpler than the implementation.
 <DeepVsShallowDiagram />
 
 
-<Callout type="tip">Think of the Unix file I/O interface: just five basic calls (<code>open</code>, <code>close</code>, <code>read</code>, <code>write</code>, <code>lseek</code>) that hide enormous complexity.</Callout>
+<TimestampBlock t={1233}>Think of the Unix file I/O interface: just five basic calls (<code>open</code>, <code>close</code>, <code>read</code>, <code>write</code>, <code>lseek</code>) that hide enormous complexity.</TimestampBlock>
+
+Node’s API interface of <code>console.log</code> hides implementation details on how v8 engine works.
+
+<TimestampBlock t={918}>
+
+### <TimestampLink t={918}>BAD: Shallow Modules</TimestampLink>
 
 
-<Callout type="tip">Node’s API interface of <code>console.log</code> hides implementation details on how v8 engine works.</Callout>
+Here's a common example of a shallow class that just passes through calls:[^2]
 
-### Example: Shallow Class Anti-Pattern
+<CodeExample language="typescript" code={`
+  class User {
+    name: string;
 
-Here's a common example of a shallow class that just passes through calls:
-
-<CodeExample language="typescript" code={`class UserService {
-  constructor(private repo: UserRepository) {}
-
-  getUser(id: string) {
-    return this.repo.getUser(id); // just passes through!
+    private setName(name: string) {
+      this.name = name;
+    }
   }
+`} />
 
-  saveUser(user: User) {
-    return this.repo.saveUser(user); // no added value
-  }
-}`} />
+There's essentialy no information hiding in this method <code>setName</code>. The caller still needs to understand the implementation details.
+</TimestampBlock>
 
-<Callout type="warning">This adds a layer without reducing complexity. The caller still needs to understand everything about User objects.</Callout>
-
-### The Solution: Deep Modules
+### GOOD: Deep Modules
 
 Instead, create interfaces that hide complexity:
 
@@ -74,7 +75,12 @@ Instead, create interfaces that hide complexity:
 [^1]: Robert C. Martin, *Clean Code* (2008), p. 34.  ![Clean Code Book](/images/clean-code.png)
 
 
-[^2]: John Ousterhout, "A Philosophy of Software Design" (2018). A refreshing contrarian perspective.
+[^2]: You can't always eliminating shallow classes. Sometimes is the best you can do.
 
-[^3]: This is the key insight: interface complexity vs implementation complexity ratio.
+[^3]: John Ousterhout, "A Philosophy of Software Design" (2018). A refreshing contrarian perspective.
+
+[^4]: This is the key insight: interface complexity vs implementation complexity ratio.
+
+
+
 

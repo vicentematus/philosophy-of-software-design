@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { SidenotesProvider, Sidenotes, FootnoteSection, useSidenotes } from './mdx'
-import { YouTubeProvider, YouTubePlayer, TimestampLink } from './video'
+import { YouTubeProvider, YouTubePlayer, TimestampLink, TimestampBlock } from './video'
 import * as EssayComponents from './essay'
 
 // Video ID for "A Philosophy of Software Design" talk
@@ -11,8 +11,9 @@ const VIDEO_ID = 'bmSAYlu0NcY'
 const mdxComponents = {
   // Override section to handle footnotes section visibility
   section: FootnoteSection,
-  // Video timestamp component
+  // Video timestamp components
   TimestampLink,
+  TimestampBlock,
   // Custom essay components
   ...EssayComponents,
 }
