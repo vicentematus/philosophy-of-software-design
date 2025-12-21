@@ -1,4 +1,6 @@
 export { DeepVsShallowDiagram } from './DeepVsShallowDiagram'
+export { ClassCostBenefitDiagram } from './ClassCostBenefitDiagram'
 export { CodeExample } from './CodeExample'
 export { Callout } from './Callout'
 export { Quote } from './Quote'
+export { ChaosTumbleweed } from './ChaosTumbleweed'

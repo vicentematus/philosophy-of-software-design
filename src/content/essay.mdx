@@ -1,4 +1,4 @@
-import { Quote, Callout, DeepVsShallowDiagram, CodeExample } from '../components/essay'
+import { Quote, Callout, DeepVsShallowDiagram, CodeExample, ChaosTumbleweed } from '../components/essay'
 import { TimestampLink } from '../components/video'
 
 # A Philosophy of Software Design
@@ -6,23 +6,43 @@ import { TimestampLink } from '../components/video'
 
 Software is all about complexity.
 
+<ChaosTumbleweed />
+
 The greatest limitation in writing software is our ability to understand the systems we are creating. The larger the program, and the more people work on it, the more difficult it is to manager complexity.
+
+We must fight back.
+
+That’s why we encapsulate with classes / modules / functions.
+
+
+<CodeExample language="typescript" code={`function doComplexThing(){
+    // ... lots of complex logic ...
+    return "complex result";
+}`} />
+
+But sometimes our design isn’t the best. We are taught by popular demand and Uncle Bob (Clean Code) that classes should just do one thing.[^1]
 
 <Quote text="The first rule of functions is that they should be small. The second rule is that they should be smaller than that." author="Robert C. Martin" source="Clean Code" />
 
+However, John Ousterhout argues something different. He suggests that we should create "deep" classes with simple interfaces that hide significant complexity.
+
 ## <TimestampLink t={756}>Deep vs Shallow Classes</TimestampLink>
 
-However, John Ousterhout argues something different. He suggests that we should create <TimestampLink t={800}>"deep" classes</TimestampLink>—classes with simple interfaces that hide significant complexity.[^2]
+
+
+A deep class is one where the interface is much simpler than the implementation.
 
 <DeepVsShallowDiagram />
 
-A deep class is one where the interface is much simpler than the implementation.[^3]
 
-<Callout type="tip">Think of the Unix file I/O interface: just five basic calls (open, close, read, write, lseek) that hide enormous complexity.</Callout>
+<Callout type="tip">Think of the Unix file I/O interface: just five basic calls (<code>open</code>, <code>close</code>, <code>read</code>, <code>write</code>, <code>lseek</code>) that hide enormous complexity.</Callout>
+
+
+<Callout type="tip">Node’s API interface of <code>console.log</code> hides implementation details on how v8 engine works.</Callout>
 
 ### Example: Shallow Class Anti-Pattern
 
-Here's a common example of a shallow class that just passes through calls:[^4]
+Here's a common example of a shallow class that just passes through calls:
 
 <CodeExample language="typescript" code={`class UserService {
   constructor(private repo: UserRepository) {}
@@ -40,7 +60,7 @@ Here's a common example of a shallow class that just passes through calls:[^4]
 
 ### The Solution: Deep Modules
 
-Instead, create interfaces that hide complexity:[^5]
+Instead, create interfaces that hide complexity:
 
 <CodeExample language="typescript" code={`class FileSystem {
   // Simple interface
@@ -51,12 +71,10 @@ Instead, create interfaces that hide complexity:[^5]
   // block allocation, journaling, encoding...
 }`} />
 
-[^1]: Robert C. Martin, "Clean Code" (2008). His influence on software design has been enormous, though increasingly debated. ![Clean Code Book](/images/clean-code.png)
+[^1]: Robert C. Martin, *Clean Code* (2008), p. 34.  ![Clean Code Book](/images/clean-code.png)
+
 
 [^2]: John Ousterhout, "A Philosophy of Software Design" (2018). A refreshing contrarian perspective.
 
 [^3]: This is the key insight: interface complexity vs implementation complexity ratio.
 
-[^4]: This pattern is extremely common in "enterprise" codebases following clean architecture dogmatically.
-
-[^5]: The Unix file system is the canonical example of deep module design.
