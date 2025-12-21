@@ -1,14 +1,18 @@
 import { Quote, Callout, DeepVsShallowDiagram, CodeExample } from '../components/essay'
+import { TimestampLink } from '../components/video'
 
 # A Philosophy of Software Design
 
-But sometimes our design isn't the best. We were taught by popular demand and Uncle Bob (Clean Code) that classes should just do one thing.[^1]
+
+Software is all about complexity.
+
+The greatest limitation in writing software is our ability to understand the systems we are creating. The larger the program, and the more people work on it, the more difficult it is to manager complexity.
 
 <Quote text="The first rule of functions is that they should be small. The second rule is that they should be smaller than that." author="Robert C. Martin" source="Clean Code" />
 
-## Deep vs Shallow Classes
+## <TimestampLink t={756}>Deep vs Shallow Classes</TimestampLink>
 
-However, John Ousterhout argues something different. He suggests that we should create "deep" classes—classes with simple interfaces that hide significant complexity.[^2]
+However, John Ousterhout argues something different. He suggests that we should create <TimestampLink t={800}>"deep" classes</TimestampLink>—classes with simple interfaces that hide significant complexity.[^2]
 
 <DeepVsShallowDiagram />
 
