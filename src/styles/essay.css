@@ -1,0 +1,451 @@
+/* ============================================
+   ESSAY LAYOUT
+   ============================================ */
+
+.essay-layout {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  min-height: 100vh;
+}
+
+.essay-content {
+  max-width: 600px;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+.essay-content h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.essay-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2a2a2a;
+}
+
+.essay-content h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: #3a3a3a;
+}
+
+.essay-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   FOOTNOTE REFERENCES
+   ============================================ */
+
+.footnote-ref {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.85em;
+  vertical-align: super;
+}
+
+.footnote-ref:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   SIDENOTES (Desktop)
+   ============================================ */
+
+.sidenotes-column {
+  position: absolute;
+  top: 2rem;
+  left: 660px;
+  width: 400px;
+}
+
+.sidenote {
+  position: absolute;
+  width: 380px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #555;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding-left: 1rem;
+  border-left: 2px solid #ddd;
+}
+
+.sidenote-number {
+  font-weight: 600;
+  color: #2563eb;
+  margin-right: 0.4rem;
+}
+
+.sidenote img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.sidenote p {
+  margin: 0 0 0.5rem 0;
+}
+
+.sidenote a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.sidenote a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   FOOTNOTES BOTTOM (Mobile)
+   ============================================ */
+
+.footnotes-hidden {
+  /* Hide visually but keep in DOM for content extraction */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.footnotes-bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footnotes-bottom h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.footnotes-bottom ol {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.footnotes-bottom li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+.footnotes-bottom a[data-footnote-backref] {
+  margin-left: 0.25rem;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+/* ============================================
+   DIAGRAM COMPONENT
+   ============================================ */
+
+.diagram-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.diagram-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.diagram-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.class-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 140px;
+}
+
+.class-interface {
+  width: 100%;
+  background-color: #dbeafe;
+  border: 2px solid #3b82f6;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1e40af;
+  text-align: center;
+  padding: 0.25rem;
+}
+
+.class-interface--small {
+  height: 30px;
+}
+
+.class-interface--large {
+  height: 80px;
+}
+
+.class-implementation {
+  width: 100%;
+  background-color: #f1f5f9;
+  border: 2px solid #94a3b8;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #475569;
+  text-align: center;
+  padding: 0.25rem;
+}
+
+.class-implementation--large {
+  height: 120px;
+}
+
+.class-implementation--small {
+  height: 70px;
+}
+
+.hidden-complexity {
+  font-size: 0.65rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+.class-label {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.class-label--good {
+  color: #16a34a;
+}
+
+.class-label--bad {
+  color: #dc2626;
+}
+
+/* ============================================
+   CODE EXAMPLE COMPONENT
+   ============================================ */
+
+.code-container {
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.code-header {
+  background-color: #f1f5f9;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.code-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+}
+
+.code-language {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: #64748b;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.code-block {
+  margin: 0;
+  padding: 1rem;
+  background-color: #1e293b;
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  font-family: Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* ============================================
+   CALLOUT COMPONENT
+   ============================================ */
+
+.callout {
+  margin: 1.5rem 0;
+  padding: 1rem 1rem 1rem 1.25rem;
+  border-radius: 4px;
+  border-left: 4px solid;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.callout--info {
+  background-color: #e0f2fe;
+  border-left-color: #0ea5e9;
+}
+
+.callout--warning {
+  background-color: #fef3c7;
+  border-left-color: #f59e0b;
+}
+
+.callout--tip {
+  background-color: #d1fae5;
+  border-left-color: #10b981;
+}
+
+.callout-icon {
+  font-size: 1rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.callout--info .callout-icon {
+  background-color: #0ea5e9;
+  color: white;
+}
+
+.callout--warning .callout-icon {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.callout--tip .callout-icon {
+  background-color: #10b981;
+  color: white;
+}
+
+.callout-content {
+  flex: 1;
+}
+
+/* ============================================
+   QUOTE COMPONENT
+   ============================================ */
+
+.quote {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: #f8fafc;
+  border-left: 4px solid #94a3b8;
+  border-radius: 0 8px 8px 0;
+}
+
+.quote-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #334155;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.quote-footer {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #64748b;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+@media (max-width: 767px) {
+  .essay-layout {
+    padding: 1rem;
+  }
+
+  .essay-content {
+    max-width: 100%;
+  }
+
+  .sidenotes-column {
+    display: none;
+  }
+
+  .footnotes-bottom {
+    display: block;
+  }
+
+  .essay-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .essay-content h2 {
+    font-size: 1.35rem;
+  }
+
+  .essay-content p {
+    font-size: 1rem;
+  }
+
+  .diagram-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidenotes-column {
+    display: block;
+  }
+
+  .footnotes-bottom {
+    display: none;
+  }
+}

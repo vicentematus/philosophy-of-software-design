@@ -1,0 +1,58 @@
+import { Quote, Callout, DeepVsShallowDiagram, CodeExample } from '../components/essay'
+
+# A Philosophy of Software Design
+
+But sometimes our design isn't the best. We were taught by popular demand and Uncle Bob (Clean Code) that classes should just do one thing.[^1]
+
+<Quote text="The first rule of functions is that they should be small. The second rule is that they should be smaller than that." author="Robert C. Martin" source="Clean Code" />
+
+## Deep vs Shallow Classes
+
+However, John Ousterhout argues something different. He suggests that we should create "deep" classes—classes with simple interfaces that hide significant complexity.[^2]
+
+<DeepVsShallowDiagram />
+
+A deep class is one where the interface is much simpler than the implementation.[^3]
+
+<Callout type="tip">Think of the Unix file I/O interface: just five basic calls (open, close, read, write, lseek) that hide enormous complexity.</Callout>
+
+### Example: Shallow Class Anti-Pattern
+
+Here's a common example of a shallow class that just passes through calls:[^4]
+
+<CodeExample language="typescript" code={`class UserService {
+  constructor(private repo: UserRepository) {}
+
+  getUser(id: string) {
+    return this.repo.getUser(id); // just passes through!
+  }
+
+  saveUser(user: User) {
+    return this.repo.saveUser(user); // no added value
+  }
+}`} />
+
+<Callout type="warning">This adds a layer without reducing complexity. The caller still needs to understand everything about User objects.</Callout>
+
+### The Solution: Deep Modules
+
+Instead, create interfaces that hide complexity:[^5]
+
+<CodeExample language="typescript" code={`class FileSystem {
+  // Simple interface
+  read(path: string): Buffer
+  write(path: string, data: Buffer): void
+
+  // Hides: caching, permissions, locking,
+  // block allocation, journaling, encoding...
+}`} />
+
+[^1]: Robert C. Martin, "Clean Code" (2008). His influence on software design has been enormous, though increasingly debated. ![Clean Code Book](/images/clean-code.png)
+
+[^2]: John Ousterhout, "A Philosophy of Software Design" (2018). A refreshing contrarian perspective.
+
+[^3]: This is the key insight: interface complexity vs implementation complexity ratio.
+
+[^4]: This pattern is extremely common in "enterprise" codebases following clean architecture dogmatically.
+
+[^5]: The Unix file system is the canonical example of deep module design.
