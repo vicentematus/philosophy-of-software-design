@@ -770,3 +770,46 @@ section[data-footnotes="true"] {
     display: none;
   }
 }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.essay-footer {
+  background-color: inherit;
+  padding: 3rem 2rem;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+.essay-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  height: 1px;
+  background-color: #e5e5e5;
+}
+
+.footer-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-github-link:hover {
+  color: #333;
+}
+
+.footer-text {
+  color: #999;
+  margin: 0.75rem 0 0 0;
+  font-size: 0.85rem;
+}
