@@ -1,12 +1,22 @@
-import type { ReactNode } from 'react'
-import { MDXProvider } from '@mdx-js/react'
-import { SidenotesProvider, Sidenotes, FootnoteSection, useSidenotes } from './mdx'
-import { YouTubeProvider, YouTubePlayer, TimestampLink, TimestampBlock } from './video'
-import { HeroSection, Footer } from './essay'
-import * as EssayComponents from './essay'
+import type { ReactNode } from "react";
+import { MDXProvider } from "@mdx-js/react";
+import {
+  SidenotesProvider,
+  Sidenotes,
+  FootnoteSection,
+  useSidenotes,
+} from "./mdx";
+import {
+  YouTubeProvider,
+  YouTubePlayer,
+  TimestampLink,
+  TimestampBlock,
+} from "./video";
+import { Footer } from "./essay";
+import * as EssayComponents from "./essay";
 
 // Video ID for "A Philosophy of Software Design" talk
-const VIDEO_ID = 'bmSAYlu0NcY'
+const VIDEO_ID = "bmSAYlu0NcY";
 
 // MDX components that override default HTML elements
 const mdxComponents = {
@@ -17,14 +27,14 @@ const mdxComponents = {
   TimestampBlock,
   // Custom essay components
   ...EssayComponents,
-}
+};
 
 interface EssayLayoutProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 function EssayContent({ children }: EssayLayoutProps) {
-  const { containerRef } = useSidenotes()
+  const { containerRef } = useSidenotes();
 
   return (
     <div className="essay-page">
@@ -38,7 +48,7 @@ function EssayContent({ children }: EssayLayoutProps) {
       </div>
       <Footer />
     </div>
-  )
+  );
 }
 
 export function EssayLayout({ children }: EssayLayoutProps) {
@@ -48,5 +58,5 @@ export function EssayLayout({ children }: EssayLayoutProps) {
         <EssayContent>{children}</EssayContent>
       </SidenotesProvider>
     </YouTubeProvider>
-  )
+  );
 }
