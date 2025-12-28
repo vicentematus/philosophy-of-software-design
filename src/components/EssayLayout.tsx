@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { SidenotesProvider, Sidenotes, FootnoteSection, useSidenotes } from './mdx'
 import { YouTubeProvider, YouTubePlayer, TimestampLink, TimestampBlock } from './video'
+import { HeroSection, Footer } from './essay'
 import * as EssayComponents from './essay'
 
 // Video ID for "A Philosophy of Software Design" talk
@@ -27,6 +28,7 @@ function EssayContent({ children }: EssayLayoutProps) {
 
   return (
     <div className="essay-page">
+      {/* <HeroSection /> */}
       <YouTubePlayer />
       <div className="essay-layout" ref={containerRef}>
         <article className="essay-content">
@@ -34,6 +36,7 @@ function EssayContent({ children }: EssayLayoutProps) {
         </article>
         <Sidenotes />
       </div>
+      <Footer />
     </div>
   )
 }
