@@ -8,7 +8,7 @@ Software is all about complexity.
 
 <ChaosTumbleweed />
 
-The greatest limitation in writing software is our ability to understand the systems we are creating. The larger the program, and the more people work on it, the more difficult it is to manager complexity.
+The biggest challenge in programming is understanding the systems we build. Larger programs and more developers increase complexity and difficulty in managing it.
 
 We must fight back.
 
@@ -20,15 +20,13 @@ That’s why we encapsulate with classes / modules / functions.
     return "complex result";
 }`} />
 
-But sometimes our design isn’t the best. We are taught by popular demand and Uncle Bob (Clean Code) that classes should just do one thing.[^1]
+But sometimes our design isn’t the best. We are taught by popular demand and Clean Code that classes should just do one thing.[^1]
 
 <Quote text="The first rule of functions is that they should be small. The second rule is that they should be smaller than that." author="Robert C. Martin" source="Clean Code" />
 
-However, John Ousterhout argues something different. He suggests that we should create "deep" classes with simple interfaces that hide significant complexity.
+However, John argues something different. He suggests that we should create "deep" classes with simple interfaces that hide significant complexity.
 
 ## <TimestampLink t={756}>Deep vs Shallow Modules</TimestampLink>
-
-
 
 A deep class is one where the interface is much simpler than the implementation.
 
@@ -37,10 +35,15 @@ A deep class is one where the interface is much simpler than the implementation.
 
 <TimestampBlock t={1233}>Think of the Unix file I/O interface: just five basic calls (<code>open</code>, <code>close</code>, <code>read</code>, <code>write</code>, <code>lseek</code>) that hide enormous complexity.</TimestampBlock>
 
-Node’s API interface of <code>console.log</code> hides implementation details on how v8 engine works.
+Node’s API interface of <code>console.log</code> hides implementation details on how stdout / stderr in V8 works.
+
+
+
+
+
+
 
 <TimestampBlock t={918}>
-
 ### <TimestampLink t={918}>BAD: Shallow Modules</TimestampLink>
 
 
@@ -59,9 +62,10 @@ Here's a common example of a shallow class that just passes through calls:[^2]
 There's essentialy no information hiding in this method <code>setName</code>. The caller still needs to understand the implementation details.
 </TimestampBlock>
 
+<TimestampBlock t={756}>
 ### GOOD: Deep Modules
 
-Instead, create interfaces that hide complexity:
+Instead, create modules that hide complexity:
 
 <CodeExample language="typescript" code={`class FileSystem {
   // Simple interface
@@ -72,14 +76,62 @@ Instead, create interfaces that hide complexity:
   // block allocation, journaling, encoding...
 }`} />
 
+</TimestampBlock>
+
+
+<TimestampBlock t={2045}>
+
+### Strategic approaches when designing 
+
+One of the biggest obstacles to good design is mindset. If you don't have the right one, you will just never produce a good design.
+
+There are two approaches to the design process: John calls them _tactical and _strategic_ programming.
+
+</TimestampBlock>
+
+#### Tactical programming
+
+In the tactical approach, your main focus is to get something working. But isn't that the goal of programming? The problem is you are always looking for shortcuts, leaving tech debt behind.
+
+Inevitably, the system turns into spaghetti (complexity increases) really fast.
+
+<figure>
+  <img src="/images/spaghetti-system.jpg" alt="Spaghetti system - The Flying Spaghetti Monster touching Adam" />
+  <figcaption>The Flying Spaghetti Monster blessing your codebase</figcaption>
+</figure>
+
+
+#### Strategic programming
+
+In the strategic approach, *working code is not enough*. Your primary goal is to produce a great design, which also happens to work.
+
+The goal is the long-term structure of the system. You think about complexity and how to manage it.
+
+<figure>
+  <img src="/images/magnus-carlsen-thinking.jpg" alt="Magnus Carlsen ultrathinking about his next chess move." />
+  <figcaption>Strategic programmers be like</figcaption>
+</figure>
+
+
+## Conclusion
+
+<Quote text='If software developers should always be thinking about design issues, and reducing complexity is the most important element of software design, then software developers should always be thinking about complexity.' author="John Ousterhout"  />
+
+
 [^1]: Robert C. Martin, *Clean Code* (2008), p. 34.  ![Clean Code Book](/images/clean-code.png)
 
 
-[^2]: You can't always eliminating shallow classes. Sometimes is the best you can do.
+[^2]: You can't always eliminate shallow classes. Sometimes is the best you can do.
 
-[^3]: John Ousterhout, "A Philosophy of Software Design" (2018). A refreshing contrarian perspective.
 
-[^4]: This is the key insight: interface complexity vs implementation complexity ratio.
+[^3]: Tactical tornado is short-sighted. 
+
+
+[^4]: Strategic programmers are long-sighted. 
+
+
+
+
 
 
 
