@@ -236,6 +236,24 @@
   margin-bottom: 1rem;
 }
 
+.essay-content figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.essay-content figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.essay-content figcaption {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
 /* ============================================
    FOOTNOTE REFERENCES
    ============================================ */
