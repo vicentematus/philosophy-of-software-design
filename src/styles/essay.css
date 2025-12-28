@@ -79,7 +79,6 @@
 .essay-page {
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
   width: 100%;
 }
 
@@ -196,6 +195,7 @@
   padding: 2rem;
   font-family: Georgia, 'Times New Roman', serif;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .essay-content {
