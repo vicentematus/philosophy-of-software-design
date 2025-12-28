@@ -258,6 +258,12 @@
    FOOTNOTE REFERENCES
    ============================================ */
 
+/* Hide the MDX-generated footnotes section at bottom */
+section.footnotes,
+section[data-footnotes="true"] {
+  display: none;
+}
+
 .footnote-ref {
   color: #2563eb;
   font-weight: 600;
@@ -337,6 +343,7 @@
 }
 
 .footnotes-bottom {
+  display: none; /* Hidden by default */
   margin-top: 3rem;
   padding-top: 1.5rem;
   border-top: 1px solid #e5e5e5;
