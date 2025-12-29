@@ -94,8 +94,8 @@
 
 .youtube-player-wrapper {
   position: relative;
-  height: 25vh; /* 25% of viewport height */
-  width: calc(25vh * 16 / 9); /* Maintain 16:9 aspect ratio */
+  height: 30vh; /* 30% of viewport height */
+  width: calc(30vh * 16 / 9); /* Maintain 16:9 aspect ratio */
   max-width: 100%; /* Prevent horizontal overflow */
   margin: 0 auto;
   overflow: hidden;
