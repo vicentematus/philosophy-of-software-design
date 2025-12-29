@@ -2,7 +2,9 @@
 
 https://github.com/user-attachments/assets/cc77dc9f-53d7-4373-8207-c544028376b4
 
-Interactive companion to John Ousterhout's book [A Philosophy of Software Design talk](https://youtu.be/bmSAYlu0NcY). [See deploy here](https://philosophy-of-software-design-essay.vercel.app/).
+Interactive companion to John Ousterhout's book [A Philosophy of Software Design talk](https://youtu.be/bmSAYlu0NcY).
+
+[See deploy here](https://philosophy-of-software-design-essay.vercel.app/).
 
 ## Thought process
 
