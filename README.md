@@ -6,6 +6,8 @@ Interactive companion to John Ousterhout's book [A Philosophy of Software Design
 
 ## Thought process
 
+I highly recommend this book. It's one of those that changes your perspective on programming.
+
 How can we use markdown to make talks more interactive? MDX looks great for this.
 
 React offers excellent support for Markdown processing. In contrast, frameworks like Svelte with [mdsvex](https://svelte.dev/docs/cli/mdsvex) have limitations when it comes to using custom components and rendering markdown elements.
