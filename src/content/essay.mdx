@@ -8,11 +8,12 @@ Software is all about complexity.
 
 <ChaosTumbleweed />
 
-The biggest challenge in programming is understanding the systems we build. Larger programs and more developers increase complexity and difficulty in managing it.
 
-We must fight back.
+<TimestampBlock t={603}>
+The biggest challenge in programming is understanding the systems we build. Larger programs and more developers increase complexity and difficulty in managing it. [^1]
+</TimestampBlock>
 
-That’s why we encapsulate with classes / modules / functions.
+We need to fight back complexity, which is why we encapsulate code using classes / modules / functions.
 
 
 <CodeExample language="typescript" code={`function doComplexThing(){
@@ -20,18 +21,20 @@ That’s why we encapsulate with classes / modules / functions.
     return "complex result";
 }`} />
 
-But sometimes our design isn’t the best. We are taught by popular demand and Clean Code that classes should just do one thing.[^1]
+But sometimes our design isn't the best. We are taught by popular demand and Clean Code that classes should just do one thing.[^2]
 
 <Quote text="The first rule of functions is that they should be small. The second rule is that they should be smaller than that." author="Robert C. Martin" source="Clean Code" />
 
 However, John argues something different. He suggests that we should create "deep" classes with simple interfaces that hide significant complexity.
 
+<TimestampBlock t={756}>
 ## <TimestampLink t={756}>Deep vs Shallow Modules</TimestampLink>
 
 A deep class is one where the interface is much simpler than the implementation.
 
 <DeepVsShallowDiagram />
 
+</TimestampBlock>
 
 <TimestampBlock t={1233}>Think of the Unix file I/O interface: just five basic calls (<code>open</code>, <code>close</code>, <code>read</code>, <code>write</code>, <code>lseek</code>) that hide enormous complexity.</TimestampBlock>
 
@@ -47,7 +50,7 @@ Node’s API interface of <code>console.log</code> hides implementation details 
 ### <TimestampLink t={918}>BAD: Shallow Modules</TimestampLink>
 
 
-Here's a common example of a shallow class that just passes through calls:[^2]
+Here's a common example of a shallow class that just passes through calls:[^3]
 
 <CodeExample language="typescript" code={`
   class User {
@@ -63,7 +66,7 @@ There's essentialy no information hiding in this method <code>setName</code>. Th
 </TimestampBlock>
 
 <TimestampBlock t={756}>
-### GOOD: Deep Modules
+### <TimestampLink t={756}>GOOD: Deep Modules</TimestampLink>
 
 Instead, create modules that hide complexity:
 
@@ -80,18 +83,17 @@ Instead, create modules that hide complexity:
 
 
 <TimestampBlock t={2045}>
-
-### Strategic approaches when designing 
+### <TimestampLink t={2045}>Strategic approaches when designing </TimestampLink>
 
 One of the biggest obstacles to good design is mindset. If you don't have the right one, you will just never produce a good design.
 
-There are two approaches to the design process: John calls them _tactical and _strategic_ programming.
-
+There are two approaches to the design process: John calls them _tactical_ and _strategic_ programming.
 </TimestampBlock>
 
-#### Tactical programming
+<TimestampBlock t={2060}>
+#### <TimestampLink t={2060}>Tactical programming</TimestampLink>
 
-In the tactical approach, your main focus is to get something working. But isn't that the goal of programming? The problem is you are always looking for shortcuts, leaving tech debt behind.
+In the tactical approach, your main focus is to get something working. But isn't that the goal of programming? The problem is you are always looking for shortcuts, leaving tech debt behind. [^4]
 
 Inevitably, the system turns into spaghetti (complexity increases) really fast.
 
@@ -100,10 +102,13 @@ Inevitably, the system turns into spaghetti (complexity increases) really fast.
   <figcaption>The Flying Spaghetti Monster blessing your codebase</figcaption>
 </figure>
 
+</TimestampBlock>
 
-#### Strategic programming
 
-In the strategic approach, *working code is not enough*. Your primary goal is to produce a great design, which also happens to work.
+<TimestampBlock t={2249}>
+#### <TimestampLink t={2249}>Strategic programming</TimestampLink>
+
+In the strategic approach, *working code is not enough*. Your primary goal is to produce a great design, which also happens to work. [^5]
 
 The goal is the long-term structure of the system. You think about complexity and how to manage it.
 
@@ -112,22 +117,28 @@ The goal is the long-term structure of the system. You think about complexity an
   <figcaption>Strategic programmers be like</figcaption>
 </figure>
 
+</TimestampBlock>
+
 
 ## Conclusion
 
 <Quote text='If software developers should always be thinking about design issues, and reducing complexity is the most important element of software design, then software developers should always be thinking about complexity.' author="John Ousterhout"  />
 
 
-[^1]: Robert C. Martin, *Clean Code* (2008), p. 34.  ![Clean Code Book](/images/clean-code.png)
+
+[^1]: John defines _complexity_ as "Anything related to the structure of a system that makes it hard to work on the development of that system"
 
 
-[^2]: You can't always eliminate shallow classes. Sometimes is the best you can do.
+[^2]: Robert C. Martin, *Clean Code* (2008), p. 34.  ![Clean Code Book](/images/clean-code.png)
 
 
-[^3]: Tactical tornado is short-sighted. 
+[^3]: You can't always eliminate shallow classes. Sometimes is the best you can do.
 
 
-[^4]: Strategic programmers are long-sighted. 
+[^4]: Tactical tornado is short-sighted. 
+
+
+[^5]: Strategic programmers are long-sighted. 
 
 
 
