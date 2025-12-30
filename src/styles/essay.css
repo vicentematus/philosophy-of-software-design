@@ -399,6 +399,7 @@ section[data-footnotes="true"] {
   display: flex;
   gap: 2rem;
   justify-content: center;
+  align-items: flex-end;
   flex-wrap: wrap;
 }
 
@@ -476,6 +477,58 @@ section[data-footnotes="true"] {
 
 .class-label--bad {
   color: #dc2626;
+}
+
+/* ============================================
+   MODULE DIAGRAM (Deep vs Shallow)
+   ============================================ */
+
+.module-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.module-box--deep {
+  width: 100px;
+}
+
+.module-box--shallow {
+  width: 200px;
+}
+
+.module-label-top {
+  font-size: 0.85rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.module-interface {
+  height: 8px;
+  background-color: #3b82f6;
+  width: 100%;
+}
+
+.module-implementation {
+  width: 100%;
+  border: 2px solid #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #374151;
+  text-align: center;
+  background-color: #fff;
+}
+
+.module-implementation--tall {
+  height: 150px;
+}
+
+.module-implementation--short {
+  height: 40px;
 }
 
 /* ============================================
