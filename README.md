@@ -10,12 +10,18 @@ Interactive companion to John Ousterhout's book [A Philosophy of Software Design
 
 I highly recommend this book. It's one of those that changes your perspective on programming.
 
-How can we use markdown to make talks more interactive? MDX looks great for this.
+How can we use Markdown to make long form content more interactive? [^1]
 
-React offers excellent support for Markdown processing. In contrast, frameworks like Svelte with [mdsvex](https://svelte.dev/docs/cli/mdsvex) have limitations when it comes to using custom components and rendering markdown elements.
+After experimenting with Svelte + [mdsvex](https://svelte.dev/docs/cli/mdsvex) in the [Stacked Tabs repository](https://github.com/vicentematus/stacked-tabs-andy-matuschak) for custom markdown rendering, I found that the ecosystem has limitations, including a lack of customization for rendering markdown elements (`h1`, `h2`, `p`).
 
-Support John's work by purchasing the book available on [Amazon](https://www.amazon.com/dp/1732102201).
+In contrast to React + MDX which it's the right tool for the job.
+
+Support John Ousterhout work by purchasing the book available on [Amazon](https://www.amazon.com/dp/1732102201).
 
 ## References
 
 Inspired by [Andy Matuschak's work](https://x.com/andy_matuschak/status/1791579746876473845).
+
+Thanks to [@facundoolano](https://github.com/facundoolano/) for the feedback.
+
+[^1]: [How We Might Learn](https://andymatuschak.org/hmwl/)
