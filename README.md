@@ -12,9 +12,7 @@ I highly recommend this book. It's one of those that changes your perspective on
 
 How can we use Markdown to make long form content more interactive? [^1]
 
-After experimenting with Svelte + [mdsvex](https://svelte.dev/docs/cli/mdsvex) in the [Stacked Tabs repository](https://github.com/vicentematus/stacked-tabs-andy-matuschak) for custom markdown rendering, I found that the ecosystem has limitations, including a lack of customization for rendering markdown elements (`h1`, `h2`, `p`).
-
-In contrast to React + MDX which it's the right tool for the job.
+After experimenting with Svelte + [mdsvex](https://svelte.dev/docs/cli/mdsvex) in the [Stacked Tabs repository](https://github.com/vicentematus/stacked-tabs-andy-matuschak) for custom markdown rendering, I found that the ecosystem has limitations, including a lack of customization for rendering markdown elements (`h1`, `h2`, `p`). In contrast to React + MDX which it's the right tool for the job.
 
 Support John Ousterhout work by purchasing the book available on [Amazon](https://www.amazon.com/dp/1732102201).
 
